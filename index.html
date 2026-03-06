@@ -3,32 +3,30 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="CFM-MPPI" />
+  <meta name="description"
+    content="CFM-MPPI: A unified generation-refinement framework bridging reward-guided conditional flow matching and sampling-based MPC for safe social navigation.">
+  <meta property="og:title" content="CFM-MPPI: Unified Generation-Refinement Planning" />
   <meta property="og:description"
-    content="This paper introduces a unified generation-refinement framework bridging learning and optimization with a novel \textit{reward-guided conditional flow matching} (CFM) model and model predictive path integral (MPPI) control. Our key innovation is in the incorporation of a \textit{bidirectional information exchange}: samples from a reward-guided CFM model provide informed priors for MPPI refinement, while the optimal trajectory from MPPI warm-starts the next CFM generation. Using autonomous social navigation as a motivating application, we demonstrate that our approach can flexibly adapt to dynamic environments to satisfy safety requirements in real-time." />
+    content="A unified generation-refinement framework bridging reward-guided conditional flow matching (CFM) and model predictive path integral (MPPI) control for safe social navigation in dynamic environments." />
   <meta property="og:url" content="https://cfm-mppi.github.io/" />
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image" content="static/images/hero5.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:title" content="CFM-MPPI: Unified Generation-Refinement Planning">
+  <meta name="twitter:description"
+    content="Bridging reward-guided conditional flow matching and sampling-based MPC for safe social navigation.">
+  <meta name="twitter:image" content="static/images/hero5.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Safe planning, generative modeling, model predictive control">
+  <meta name="keywords"
+    content="Safe planning, generative modeling, model predictive control, conditional flow matching, social navigation, MPPI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
   <title>Unified Generation-Refinement Planning: Bridging Guided Flow Matching and Sampling-Based MPC for Social
     Navigation</title>
-  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -48,7 +46,7 @@
 
 <body>
 
-
+  <!-- Hero / Title Section -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -57,22 +55,21 @@
             <h1 class="title is-1 publication-title">Unified Generation-Refinement Planning: Bridging Guided Flow
               Matching and Sampling-Based MPC for Social Navigation</h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://m-kazuki.github.io/" target="_blank">Kazuki Mizuta</a>,
+                <a href="https://m-kazuki.github.io/" target="_blank">Kazuki Mizuta</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://faculty.washington.edu/kymleung/" target="_blank">Karen Leung</a>
+                <a href="https://faculty.washington.edu/kymleung/" target="_blank">Karen Leung</a><sup>1,2</sup>
               </span>
-              <!-- <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span> -->
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><br>ICRA 2026</span>
+              <span class="author-block"><sup>1</sup>University of Washington &nbsp; <sup>2</sup>NVIDIA</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <br>
+              <span class="author-block publication-venue">ICRA 2026</span>
             </div>
 
             <div class="column has-text-centered">
@@ -87,17 +84,6 @@
                     <span>Paper</span>
                   </a>
                 </span>
-
-                <!-- Supplementary PDF link -->
-                <!-- <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span> -->
 
                 <!-- Github link -->
                 <span class="link-block">
@@ -129,12 +115,11 @@
   </section>
 
 
-  <!-- Teaser video-->
+  <!-- Teaser video -->
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <video poster="" id="tree" autoplay controls muted height="100%">
-          <!-- Your video here -->
+        <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
           <source id="video-source" src="static/videos/sfm0.mp4" type="video/mp4">
         </video>
         <script>
@@ -177,17 +162,18 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Planning safe and effective robot behavior in dynamic, human-centric environments remains a core challenge
-              due to the need to handle uncertainty, adapt in real-time, and ensure safety. Optimization-based planners
-              offer explicit constraint handling but rely on oversimplified initialization, reducing solution quality.
+              Robust robot planning in dynamic, human-centric environments remains a core challenge
+              due to the need to handle multimodal uncertainty, adapt in real-time, and maintain safety.
+              Optimization-based planners
+              offer explicit constraint handling but performance relies on initialization quality.
               Learning-based planners better capture multimodal possible solutions but struggle to enforce constraints
               such as safety. In this paper, we introduce a unified generation-refinement framework bridging learning
-              and optimization with a novel \textit{reward-guided conditional flow matching} (CFM) model and model
+              and optimization with a novel <em>reward-guided conditional flow matching</em> (CFM) model and model
               predictive path integral (MPPI) control. Our key innovation is in the incorporation of a
-              \textit{bidirectional information exchange}: samples from a reward-guided CFM model provide informed
+              <em>bidirectional information exchange</em>: samples from a reward-guided CFM model provide informed
               priors for MPPI refinement, while the optimal trajectory from MPPI warm-starts the next CFM generation.
               Using autonomous social navigation as a motivating application, we demonstrate that our approach can
-              flexibly adapt to dynamic environments to satisfy safety requirements in real-time.
+              flexibly adapt to dynamic environments, enforcing safety compliance in real-time.
             </p>
           </div>
         </div>
@@ -197,45 +183,101 @@
   <!-- End paper abstract -->
 
 
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/hero5.png" />
-            <h2 class="subtitle has-text-centered">
-              Overview of the proposed unified planning framework for dynamic environments: At each planning step, our
-              conditional flow matching (CFM) model generates context-aware and multimodal trajectory candidates guided
-              by a reward function. Promising candidates are selected, then refined, and the best trajectory is selected
-              and executed. The optimal trajectory warm-starts the next CFM generation for the next planning step.
-            </h2>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/hero2.png" />
-            <h2 class="subtitle has-text-centered">
-              A safety-guided conditional flow matching (CFM) model generates diverse trajectories as priors for model
-              predictive control (MPC), which in turn warm-starts the next CFM sampling step.
-            </h2>
-          </div>
+  <!-- Framework Overview -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Framework Overview</h2>
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <figure class="image">
+            <img src="static/images/hero5.png" alt="Framework Overview" style="border-radius: 8px;">
+          </figure>
+          <p class="has-text-centered content mt-3">
+            <strong>Overview of the proposed unified planning framework for dynamic environments:</strong>
+            At each planning step, our conditional flow matching (CFM) model generates context-aware and multimodal
+            trajectory candidates guided by a reward function. Promising candidates are selected, then refined, and the
+            best trajectory is selected and executed. The optimal trajectory warm-starts the next CFM generation for the
+            next planning step.
+          </p>
         </div>
       </div>
     </div>
   </section>
-  <!-- End image carousel -->
 
 
+  <!-- Method Diagram -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Method: Bidirectional Information Exchange</h2>
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <figure class="image">
+            <img src="static/images/hero2.png" alt="Method Overview" style="border-radius: 8px;">
+          </figure>
+          <p class="has-text-centered content mt-3">
+            A safety-guided conditional flow matching (CFM) model generates diverse trajectories as priors for model
+            predictive control (MPC), which in turn warm-starts the next CFM sampling step —
+            creating a <strong>bidirectional feedback loop</strong> that improves efficiency and performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Quantitative Results -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <!-- Safe vs Goal -->
+      <div class="columns is-centered">
+        <div class="column is-12">
+          <h3 class="title is-4">Safety vs. Goal-Reaching Performance</h3>
+          <figure class="image">
+            <img src="static/images/safe_goal.png" alt="Safety vs Goal reaching comparison"
+              style="border-radius: 8px; background: white; padding: 12px;">
+          </figure>
+          <p class="content mt-3 has-text-justified">
+            Quantitative performance comparison of goal reaching versus collision rate across various datasets and
+            simulated environments. CFM-MPPI* (mode-selective) achieves the balance of safety and task performance
+            across all environments.
+          </p>
+        </div>
+      </div>
+
+      <!-- Computation Time -->
+      <div class="columns is-centered mt-5">
+        <div class="column is-8">
+          <h3 class="title is-4">Computation Time</h3>
+          <figure class="image">
+            <img src="static/images/time.png" alt="Computation time comparison"
+              style="border-radius: 8px; background: white; padding: 12px;">
+          </figure>
+          <p class="content mt-3 has-text-justified">
+            Comparison of computation time across different methods.
+            CFM generates control sequences in less than 0.1 seconds.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
 
 
   <!--BibTex citation -->
-  <!-- <section class="section" id="BibTeX">
+  <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@inproceedings{mizuta2026cfmmppi,
+  title={Unified Generation-Refinement Planning: Bridging Guided Flow Matching and Sampling-Based MPC for Social Navigation},
+  author={Mizuta, Kazuki and Leung, Karen},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2026}
+}</code></pre>
     </div>
-</section> -->
+  </section>
   <!--End BibTex citation -->
 
 
@@ -244,27 +286,19 @@
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content">
-
             <p>
               This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-                target="_blank">Academic Project Page Template</a> which was adopted from the <a
-                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
               <br> This website is licensed under a <a rel="license"
                 href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
                 Commons Attribution-ShareAlike 4.0 International License</a>.
             </p>
-
           </div>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- Statcounter tracking code -->
-
-  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-  <!-- End of Statcounter Code -->
 
 </body>
 
